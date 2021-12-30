@@ -4,6 +4,10 @@ import Board from "./components/Board";
 // parent component similar to App.js in our previous projects
 
 export default class Game extends React.Component {
+
+
+
+
   render() {
     return (
       <div className="game">
