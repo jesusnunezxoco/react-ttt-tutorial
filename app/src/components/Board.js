@@ -2,8 +2,11 @@ import React from 'react'
 import Square from "./Square"
 
 export default class Board extends React.Component {
+  // function called renderSquare that will take a number, `i`
   renderSquare(i) {
-    return <Square />;
+    // created a prop called `value`
+    // the `i` paramete gets passed to `Square` through the `value` prop
+    return <Square value={i} />;
   }
 
   render() {
