@@ -15,7 +15,15 @@ export default class Board extends React.Component {
     // update the copy
     // if xIsNext is true, then return string "X"
     // else return string "O"
+
+    // won't fire:
+    // if the square is already filled (it will have a string instead of a null)
+    if(copy[i]) return
+    // if there's  already a winner determined
+    if(calculateWinner(copy)) return
+
     copy[i] = this.state.xIsNext ? "X" : "O";
+
 
     this.setState({
       // will replace squares with the updated copy
