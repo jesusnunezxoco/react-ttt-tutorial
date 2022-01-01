@@ -1,16 +1,23 @@
-import React from 'react'
-import Square from "./Square"
+import React from "react";
+import Square from "./Square";
 
 export default class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { squares: Array(9).fill(null) };
+  }
+
+  
+
   // function called renderSquare that will take a number, `i`
   renderSquare(i) {
     // created a prop called `value`
     // the `i` paramete gets passed to `Square` through the `value` prop
-    return <Square value={i} />;
+    return <Square value={this.state.squares[i]}  />;
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = "Next player: X";
 
     return (
       <div>

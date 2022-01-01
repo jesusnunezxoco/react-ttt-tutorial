@@ -8,7 +8,7 @@ export default class Square extends React.Component {
 
   handleClick = () => {
     console.log("clickkity click");
-    this.setState({ value: "X" });
+    this.setState({value: "X"})
   };
 
   render() {
