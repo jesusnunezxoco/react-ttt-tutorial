@@ -1,23 +1,29 @@
-import React, {useState} from 'react'
-import Square from './Square';
+import React, { useState } from "react";
+import Square from "./Square";
 
 export default function Board() {
+  let [squares, setSquares] = useState(Array(9).fill(null));
+  let [xIsNext, setXIsNext] = useState(true);
 
-  let [squares, setSquares] = useState(Array(9).fill(null))
-  
-    const handleClick = (i) => {
-      console.log(squares)
-      let copy = squares.slice()
-      copy[i] = "X"
-      setSquares(copy)
+  const handleClick = (i) => {
+    console.log(squares);
+    let copy = squares.slice();
+
+    // don't handle click if square already filled
+    if (squares[i]) {
+      return;
     }
 
-
-  const renderSquare = (i) => {
-    return <Square value={squares[i]} handleClick={() => handleClick(i)}/>;
+    copy[i] = xIsNext ? "X" : "O";
+    setSquares(copy);
+    setXIsNext(!xIsNext);
   };
 
-  const status = "Next player: X";
+  const renderSquare = (i) => {
+    return <Square value={squares[i]} handleClick={() => handleClick(i)} />;
+  };
+
+  const status = `Next player: ${xIsNext ? "X" : "O"}`;
 
   return (
     <div>
